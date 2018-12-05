@@ -1,0 +1,166 @@
+-------------------------------------Docker--------------------------------------------------
+
+
+
+
+Docker is a container management service. The keywords of Docker are develop, ship and run anywhere. The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
+
+The initial release of Docker was in March 2013 and since then, it has become the buzzword for modern world development, especially in the face of Agile-based projects.
+
+Features of Docker
+Docker has the ability to reduce the size of development by providing a smaller footprint of the operating system via containers.
+
+With containers, it becomes easier for teams across different units, such as development, QA and Operations to work seamlessly across applications.
+
+You can deploy Docker containers anywhere, on any physical and virtual machines and even on the cloud.
+
+Since Docker containers are pretty lightweight, they are very easily scalable.
+
+Components of Docker
+Docker has the following components
+
+Docker for Mac − It allows one to run Docker containers on the Mac OS.
+
+Docker for Linux − It allows one to run Docker containers on the Linux OS.
+
+Docker for Windows − It allows one to run Docker containers on the Windows OS.
+
+Docker Engine − It is used for building Docker images and creating Docker containers.
+
+Docker Hub − This is the registry which is used to host various Docker images.
+
+Docker Compose − This is used to define applications using multiple Docker containers.
+
+We will discuss all these components in detail in the subsequent chapters.
+-----------------------------------------------------------------------------------------------------------
+
+For installation of docker please go to docker official sites.
+----------------------------------------------------------------------------------------------------------
+To start the docker :
+
+# service docker start   ---> start the docker daemon
+
+# chkconfig docker on   ---> to start docker daemon on boot. (in redhat)
+
+# systemctl enable docker ---> to start docker daemon on boot (in ubuntu)
+
+# service docker restart   ---> restart the docker daemon
+-------------------------------------------------------------------------------------------------------
+
+-> to give the access to particular user to use docker 
+
+# usermod -a -G docker <username>
+
+-----------------------------------------------------------------------------------------------------------
+
+Commands in docker:
+
+$ docker info
+
+$ docker --version
+
+LOGIN:
+
+login to docker hub :
+
+$ docker login
+
+$ docker logout
+
+
+
+Images:
+
+$ docker images (to see the images available in the host)
+
+$ docker images -q  (in quite mode)
+
+$ docker pull <imagename>:<tag> ---> (from dockerhub )
+
+$ docker push <imagename>:<tag>   ---> (to push images to dockerhub)
+
+$ docker rmi <imagename> or <image id> -----> to remove particular images
+
+$ docker rmi $(docker images -q) to delete all images
+
+$ docker rmi -f forcely
+
+
+
+ Containers:
+
+ $ docker ps (to see the running containers list)
+
+ $ docker ps -a (to see the all containers list)
+
+ $ docker ps -aq  (-q is in quite mode means only containers id)
+
+Dealing with docker containers
+
+ $ docker run <image>  -----> (to start a container with a image)
+
+ $ docker run -it --name <cont. name> -p xxxx:xxxx <imagename> 
+
+       -p port forward
+       -it interactive mode
+       --name container name
+
+ $ docker run -d <imagename>
+
+       -d detached mode
+
+ # docker rm <container id or container name> (to delete container)
+
+ # docker rm -f forcely
+
+ # docker rm $(docker ps -aq) -------> all container delete
+
+ # docker rm $(docker ps -q) ----------> remove all running containers 
+
+ # docker start <container id or container name>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+RUN
+
+Used to execute a command during the build process of the docker image.
+
+ADD
+
+Copy a file from the host machine to the new docker image. There is an option to use an URL for the file, docker will then download that file to the destination directory.
+
+ENV
+
+Define an environment variable.
+
+CMD
+
+Used for executing commands when we build a new container from the docker image.
+
+ENTRYPOINT
+
+Define the default command that will be executed when the container is running.
+
+WORKDIR
+
+This is directive for CMD command to be executed.
+
+USER
+
+Set the user or UID for the container created with the image.
+
+VOLUME
+
+Enable access/linked directory between the container and the host machine.
+
+Now let's start to create our first dockerfile.
