@@ -21,11 +21,11 @@
   <distributionManagement>
     <snapshotRepository>
       <id>nexus-snapshots</id>
-      <url>http://your-host:8081/repository/maven-snapshots/</url>
+      <url>http://18.204.43.93:8081/repository/venkat-snap/</url>
     </snapshotRepository>
     <repository>
       <id>nexus-releases</id>
-      <url>http://your-host:8081/repository/maven-releases/</url>
+      <url>http://18.204.43.93:8081/repository/venkat-rel/</url>
     </repository>
   </distributionManagement>
 </project>
